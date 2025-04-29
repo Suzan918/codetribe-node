@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Server API Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Media Server API Documentation</h1>
+    <p>This API provides endpoints to manage a collection of movies, TV series, and songs.</p>
+
+    <h2>Available Endpoints</h2>
+
+    <div class="endpoint">
+        <p class="method">GET /:type</p>
+        <p>Get all items of a specific type (movies, series, or songs)</p>
+        <p>Example: <code>GET /movies</code></p>
+    </div>
+
+    <div class="endpoint">
+        <p class="method">POST /:type</p>
+        <p>Add a new item to a specific type</p>
+        <p>Example: <code>POST /movies</code></p>
+        <div class="example">
+            Request body:
+            <pre>
+{
+    "title": "Inception",
+    "director": "Christopher Nolan",
+    "year": 2010
+}</pre>
+        </div>
+    </div>
+
+    <div class="endpoint">
+        <p class="method">PUT /:type/:id</p>
+        <p>Update an existing item by ID</p>
+        <p>Example: <code>PUT /movies/1</code></p>
+        <div class="example">
+            Request body:
+            <pre>
+{
+    "year": 2011
+}</pre>
+        </div>
+    </div>
+
+    <div class="endpoint">
+        <p class="method">DELETE /:type/:id</p>
+        <p>Delete an item by ID</p>
+        <p>Example: <code>DELETE /movies/1</code></p>
+    </div>
+
+    <h2>Data Types</h2>
+
+    <h3>Movie</h3>
+    <pre>
+{
+    "id": number,
+    "title": string,
+    "director": string,
+    "year": number
+}</pre>
+
+    <h3>Series</h3>
+    <pre>
+{
+    "id": number,
+    "title": string,
+    "seasons": number,
+    "creator": string
+}</pre>
+
+    <h3>Song</h3>
+    <pre>
+{
+    "id": number,
+    "title": string,
+    "artist": string,
+    "year": number
+}</pre>
+</body>
+</html> 
